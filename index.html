@@ -18,14 +18,45 @@
 <body>
 <div id="carregando"><div><i></i>Carregando…</div></div>
 <script>
-  // Endereço do sistema no Google (Apps Script). Os parâmetros da barra (?cliente=, ?admin=, ?gerador=) são repassados.
+  // Endereço do sistema no Google (Apps Script)
   var APP = 'https://script.google.com/macros/s/AKfycbyimzOHZXMS_SElbyAV_WH59SPS8Q82591F1XbcXxI8u7HP8RHA7__1qEvKpoL-0XWM/exec';
-  var f = document.createElement('iframe');
-  f.src = APP + location.search;
-  f.allow = 'autoplay; fullscreen; clipboard-write';
-  f.setAttribute('allowfullscreen', '');
-  f.onload = function () { var c = document.getElementById('carregando'); c.style.opacity = 0; setTimeout(function () { c.remove(); }, 400); };
-  document.body.appendChild(f);
+  // Endereços das abas da agência: sistemalionmkt.com.br/teleprompter, /cronograma ...
+  var ROTAS = {
+    aprovacoes: ['admin', 'Aprovações'], cronograma: ['cronograma', 'Cronograma'], agenda: ['agendapainel', 'Agenda'],
+    orcamentos: ['orcamentos', 'Orçamentos'], gerador: ['gerador', 'Gerador'], teleprompter: ['prompter', 'Teleprompter']
+  };
+  var CH = 'lionChave';
+  function lerChave() { try { return localStorage.getItem(CH) || ''; } catch (e) { return ''; } }
+  function salvarChave(k) { try { localStorage.setItem(CH, k); } catch (e) {} }
+  var q = new URLSearchParams(location.search);
+  var rota = location.pathname.replace(/^\/+|\/+$/g, '').split('/')[0].toLowerCase();
+  // link antigo (?cronograma=CHAVE): guarda a chave neste aparelho e mostra o endereço curto
+  Object.keys(ROTAS).forEach(function (r) {
+    var p = ROTAS[r][0];
+    if (q.get(p)) { salvarChave(q.get(p)); q.delete(p); rota = r; }
+  });
+  if (q.get('k')) { salvarChave(q.get('k')); q.delete('k'); }
+  var src = APP + location.search, erro = '';
+  if (ROTAS[rota]) {
+    var resto = q.toString();
+    try { history.replaceState(null, '', '/' + rota + (resto ? '?' + resto : '')); } catch (e) {}
+    document.title = ROTAS[rota][1] + ' · Li-On';
+    var k = lerChave();
+    if (!k) erro = 'Este aparelho ainda não tem acesso.<br>Abra uma vez o link completo do painel (com a chave) e depois use este endereço.';
+    q.set(ROTAS[rota][0], k);
+    src = APP + '?' + q.toString();
+  }
+  if (erro) {
+    document.getElementById('carregando').innerHTML = '<div style="text-align:center;max-width:340px;line-height:1.6;padding:20px">' + erro + '</div>';
+  } else {
+    var f = document.createElement('iframe');
+    f.src = src;
+    f.allow = 'autoplay; fullscreen; clipboard-write; screen-wake-lock';
+    f.setAttribute('allowfullscreen', '');
+    f.onload = function () { var c = document.getElementById('carregando'); c.style.opacity = 0; setTimeout(function () { c.remove(); }, 400); };
+    document.body.appendChild(f);
+  }
 </script>
 </body>
 </html>
+
