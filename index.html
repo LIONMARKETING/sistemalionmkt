@@ -4,19 +4,22 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Aprovação de artes · Li-On</title>
-<meta name="theme-color" content="#08070c">
+<meta name="theme-color" content="#f5f3fa">
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%237c3aed'/><stop offset='.55' stop-color='%23a855f7'/><stop offset='1' stop-color='%23ec4899'/></linearGradient></defs><rect width='64' height='64' rx='14' fill='url%28%23g%29'/><g transform='translate%285 19.5%29 scale%280.0874%29'><path fill='%23fff' d='M213 278L177 278L177 277L186 270L196 263L208 263L215 259L221 256L221 210L199 204L177 198L175 199L175 205L174 212L172 217L165 212L158 207L138 195L120 183L110 176L100 170L98 172L97 180L96 188L95 189L76 170L56 151L55 151L45 156L35 160L33 160L17 140L2 120L0 117L13 103L27 88L28 83L28 77L41 67L54 58L54 52L55 41L56 30L76 17L96 4L97 4L99 8L102 12L103 12L116 6L128 0L157 4L186 7L188 9L181 14L174 19L178 21L204 25L231 30L235 30L235 32L229 44L223 55L224 56L231 54L238 52L258 55L278 58L310 63L343 67L374 64L405 60L441 68L476 76L480 78L526 110L571 142L573 142L578 139L584 137L584 134L583 130L582 126L600 110L618 93L618 96L612 121L607 146L604 149L588 154L571 160L531 133L492 106L481 99L471 92L451 92L431 92L439 103L448 114L466 138L485 162L488 165L504 168L519 171L521 172L526 184L531 194L540 215L550 236L556 248L562 262L565 264L561 271L557 278L524 278L492 278L500 269L507 260L519 260L530 260L530 259L514 238L499 217L473 217L446 218L424 206L402 195L387 187L372 179L353 186L334 194L314 201L294 209L293 209L285 200L278 191L276 191L270 209L265 226L257 252L248 278Z'/></g></svg>">
 <style>
-  html,body{margin:0;height:100%;background:#08070c;overflow:hidden}
+  html,body{margin:0;height:100%;background:#f5f3fa;overflow:hidden}
   iframe{position:fixed;inset:0;width:100%;height:100%;border:0;display:block}
-  #carregando{position:fixed;inset:0;display:grid;place-items:center;color:#c4b5fd;font:600 15px system-ui,sans-serif;transition:opacity .4s}
-  #carregando i{width:34px;height:34px;border-radius:50%;border:3px solid rgba(196,181,253,.25);border-top-color:#a855f7;animation:g 1s linear infinite;display:block;margin:0 auto 12px}
-  @keyframes g{to{transform:rotate(360deg)}}
+  #carregando{position:fixed;inset:0;display:grid;place-items:center;text-align:center;color:#6f6888;font:600 14px Inter,system-ui,sans-serif;letter-spacing:.02em;transition:opacity .4s;background:radial-gradient(700px 400px at 50% 0%,rgba(168,85,247,.14),transparent 70%),#f5f3fa}
+  #carregando svg{width:92px;height:auto;display:block;margin:0 auto 18px;color:#7c3aed;animation:resp 1.6s ease-in-out infinite}
+  @keyframes resp{50%{transform:scale(1.06);opacity:.75}}
+  #carregando i{width:120px;height:4px;border-radius:4px;background:#e8e2f4;display:block;margin:14px auto 0;overflow:hidden;position:relative}
+  #carregando i:after{content:'';position:absolute;inset:0;width:40%;border-radius:4px;background:linear-gradient(90deg,#7c3aed,#d946ef);animation:g 1.1s ease-in-out infinite}
+  @keyframes g{from{transform:translateX(-100%)}to{transform:translateX(250%)}}
 </style>
 </head>
 <body>
-<div id="carregando"><div><i></i>Carregando…</div></div>
+<div id="carregando"><div><svg viewBox="0 0 618 278" aria-hidden="true"><path fill="currentColor" d="M213 278L177 278L177 277L186 270L196 263L208 263L215 259L221 256L221 210L199 204L177 198L175 199L175 205L174 212L172 217L165 212L158 207L138 195L120 183L110 176L100 170L98 172L97 180L96 188L95 189L76 170L56 151L55 151L45 156L35 160L33 160L17 140L2 120L0 117L13 103L27 88L28 83L28 77L41 67L54 58L54 52L55 41L56 30L76 17L96 4L97 4L99 8L102 12L103 12L116 6L128 0L157 4L186 7L188 9L181 14L174 19L178 21L204 25L231 30L235 30L235 32L229 44L223 55L224 56L231 54L238 52L258 55L278 58L310 63L343 67L374 64L405 60L441 68L476 76L480 78L526 110L571 142L573 142L578 139L584 137L584 134L583 130L582 126L600 110L618 93L618 96L612 121L607 146L604 149L588 154L571 160L531 133L492 106L481 99L471 92L451 92L431 92L439 103L448 114L466 138L485 162L488 165L504 168L519 171L521 172L526 184L531 194L540 215L550 236L556 248L562 262L565 264L561 271L557 278L524 278L492 278L500 269L507 260L519 260L530 260L530 259L514 238L499 217L473 217L446 218L424 206L402 195L387 187L372 179L353 186L334 194L314 201L294 209L293 209L285 200L278 191L276 191L270 209L265 226L257 252L248 278Z"/></svg>Carregando…<i></i></div></div>
 <script>
   // Endereço do sistema no Google (Apps Script)
   var APP = 'https://script.google.com/macros/s/AKfycbyimzOHZXMS_SElbyAV_WH59SPS8Q82591F1XbcXxI8u7HP8RHA7__1qEvKpoL-0XWM/exec';
@@ -47,7 +50,7 @@
     src = APP + '?' + q.toString();
   }
   if (erro) {
-    document.getElementById('carregando').innerHTML = '<div style="text-align:center;max-width:340px;line-height:1.6;padding:20px">' + erro + '</div>';
+    document.getElementById('carregando').innerHTML = '<div style="text-align:center;max-width:340px;line-height:1.6;padding:20px;color:#1d1630">' + erro + '</div>';
   } else {
     var f = document.createElement('iframe');
     f.src = src;
